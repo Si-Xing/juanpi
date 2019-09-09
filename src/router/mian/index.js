@@ -1,7 +1,7 @@
 export default {
-    path:"/main",
+    path:"/mian",
     component:()=>import("views/mian"),
-    name:"main",
+    name:"mian",
     meta:{
         tabBar:true,
         auth:false
