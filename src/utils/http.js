@@ -1,39 +1,28 @@
 import axios from "axios"
-
-const server=axios.create({
-    timeout:2000,
+import loading from "lib/loadimg/index.js"
+const server = axios.create({
+    timeout:10000,
     withCredentials:true
 })
-
-server.interceptors.request.use((config)=>{
-    if(config.method.toUpperCase()=="GET"){
-        config.params={...config.data}
-    }else if(config.method.toUpperCase()=="POST"){
-        config.headers["content-type"]="appliaction/x-www-from-urlencoded";
+server.interceptors.request.use(config=>{
+    if(config.method == "get"){
+        config.params = {...config.data};
+    }else if(config.method == "POST"){
+        //config.headers["content-type"] = "application/x-www-form-urlencoded"
     }
-
+    loading.open()
     return config;
-},(err)=>{
-    Promise.reject(err)
+},err=>{
+    return Promise.reject(err);
 })
 
-
-server.interceptors.pesponse.use((res)=>{
-    if(res.statusText=="OK"){
-        return res.data
+server.interceptors.response.use(res=>{
+    if(res.status == 200){
+        loading.close()
+        return res.data;
     }
-},(err)=>{
-    Promise.reject(err)
 })
 
+export default server;
 
-export default (method,url,data={})=>{
-    if (method.toUpperCase=="GET") {
-        return server.get(url,{
-            params:data
-        })
-    } else if (method.toUpperCase=="POST") {
-        return server.post(url,data)
-    }
-}
 
