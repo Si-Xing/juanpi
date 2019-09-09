@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Classify</h2>
+        <!-- <h2>Classify</h2> -->
     </div>
 </template>
 <script>

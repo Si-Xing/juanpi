@@ -28,9 +28,6 @@ export default {
 }
 </script>
 <style>
-body{
-    font-size: 12px;
-}
 .botm {
 	position: fixed;
 	bottom: 0;
@@ -46,6 +43,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background:#fff;
 }
 .botm ul .router-link-active {
 	color: #FF464E;

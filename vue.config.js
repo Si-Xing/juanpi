@@ -3,12 +3,12 @@ const path=require("path");
 module.exports={
     // publicPath:"goods",
     devServer:{
-        // proxy:{
-        //     "/Zgio":{
-        //         target:"https://m.juanpi.com",
-        //         changeOrigin:true
-        //     }
-        // }
+        proxy:{
+            "/api":{
+                target:"https://webservice.juanpi.com/",
+                changeOrigin:true
+            }
+        }
     },
     configureWebpack:{
         resolve:{
