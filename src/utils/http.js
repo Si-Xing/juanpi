@@ -1,39 +1,56 @@
 import axios from "axios"
-
-const server=axios.create({
+<<<<<<< HEAD
+const http = axios.create({
     timeout:2000,
+    //是否允许携带cookie
+    withCredentials:true
+}) 
+//拦截器
+//请求
+http.interceptors.request.use(config=>{
+    if(config.method=="get"){
+        config.params = {...config.data}
+    }else if(config.method=="post"){
+        //根据后端要求来配置请求头
+        //config.headers["content-type"] = "application/x-www-form-urlencoded"
+    }
+    return config
+},err=>{
+    return Promise.reject(err)
+})
+http.interceptors.response.use(res=>{
+    if(res.status==200){
+        return res.data;
+    }
+})
+//响应
+export default http
+=======
+import loading from "lib/loadimg/index.js"
+const server = axios.create({
+    timeout:10000,
     withCredentials:true
 })
-
-server.interceptors.request.use((config)=>{
-    if(config.method.toUpperCase()=="GET"){
-        config.params={...config.data}
-    }else if(config.method.toUpperCase()=="POST"){
-        config.headers["content-type"]="appliaction/x-www-from-urlencoded";
+server.interceptors.request.use(config=>{
+    if(config.method == "get"){
+        config.params = {...config.data};
+    }else if(config.method == "POST"){
+        //config.headers["content-type"] = "application/x-www-form-urlencoded"
     }
-
+    loading.open()
     return config;
-},(err)=>{
-    Promise.reject(err)
+},err=>{
+    return Promise.reject(err);
 })
 
-
-server.interceptors.pesponse.use((res)=>{
-    if(res.statusText=="OK"){
-        return res.data
+server.interceptors.response.use(res=>{
+    if(res.status == 200){
+        loading.close()
+        return res.data;
     }
-},(err)=>{
-    Promise.reject(err)
 })
 
+export default server;
 
-export default (method,url,data={})=>{
-    if (method.toUpperCase=="GET") {
-        return server.get(url,{
-            params:data
-        })
-    } else if (method.toUpperCase=="POST") {
-        return server.post(url,data)
-    }
-}
 
+>>>>>>> 0acee20ce6ed6827caf1b3c755e8a070593f48ac
