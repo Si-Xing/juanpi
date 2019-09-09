@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Home from "./home"
@@ -30,3 +31,28 @@ const router = new VueRouter({
     ]
 })
 export default router;
+=======
+import Vue from "vue";
+import VueRouter from "vue-router";
+import home from "./home";
+import mian from "./mian";
+import shopping from "./shopping";
+import classify from "./classify";
+import snapUp from "./snapUp"
+Vue.use(VueRouter);
+
+export default new VueRouter({
+    routes:[
+        {
+            path:"/",
+            redirect:"/snapUp"
+        },
+        home,
+        mian,
+        shopping,
+        classify,
+        snapUp
+
+    ]
+})
+>>>>>>> 0acee20ce6ed6827caf1b3c755e8a070593f48ac
