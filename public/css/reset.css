@@ -10,27 +10,16 @@ address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:norm
 
 ul, ol ,li{ list-style:none; }
 
-<<<<<<< HEAD
 body { color:#333;font-family:PingFang-SC-Regular,Helvetica Neue,Helvetica,Droid Sans Fallback,microsoft yahei,sans-serif; background:#fff;}
-=======
-body { color:#333; font:12px PingFangSC-Regular,Hiragino Sans GB,sans-serif; background:#fff;}
->>>>>>> 0acee20ce6ed6827caf1b3c755e8a070593f48ac
 
 a { color:#666; text-decoration:none; }
 /*清除浮动*/
 .clear{clear:both}
 *{box-sizing:border-box}
-<<<<<<< HEAD
-body,html{
-  font-size:26.67vw;
-}
-=======
 body,html,#app{
     height: 100%;
 }
 html,body{ font-size:26.67vw;}
->>>>>>> 0acee20ce6ed6827caf1b3c755e8a070593f48ac
-
 
 
 
