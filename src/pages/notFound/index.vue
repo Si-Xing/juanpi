@@ -1,13 +1,13 @@
 <template>
     <div>
-       Home 
+        <!-- <h2>404</h2> -->
     </div>
 </template>
 <script>
 export default {
-    name:"Home"
+    name:"NotFound"
 }
 </script>
-<style scoped>
-
+<style lang="">
+    
 </style>

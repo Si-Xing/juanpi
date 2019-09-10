@@ -1,23 +1,26 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import home from "./home";
-import mian from "./mian";
-import shopping from "./shopping";
-import classify from "./classify";
-import snapUp from "./snapUp"
-Vue.use(VueRouter);
-
-export default new VueRouter({
+import Vue from "vue"
+import VueRouter from "vue-router"
+import Home from "./home"
+import Classify from "./classify"
+import ShopCar from "./shopCar"
+import Mine from "./mine"
+Vue.use(VueRouter)
+const router = new VueRouter({
+    mode:"hash",
     routes:[
         {
-            path:"/",
-            redirect:"/snapUp"
+            path:'/',
+            redirect:"/home",
         },
-        home,
-        mian,
-        shopping,
-        classify,
-        snapUp
-
+        Home,
+        Classify,
+        ShopCar,
+        Mine,
+        {
+            path:"**",
+            component:()=>import("@/pages/notFound")
+           
+        }
     ]
 })
+export default router;

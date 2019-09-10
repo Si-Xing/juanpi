@@ -1,28 +1,26 @@
 import axios from "axios"
-import loading from "lib/loadimg/index.js"
-const server = axios.create({
-    timeout:10000,
+const http = axios.create({
+    timeout:2000,
+    //是否允许携带cookie
     withCredentials:true
-})
-server.interceptors.request.use(config=>{
-    if(config.method == "get"){
-        config.params = {...config.data};
-    }else if(config.method == "POST"){
+}) 
+//拦截器
+//请求
+http.interceptors.request.use(config=>{
+    if(config.method=="get"){
+        config.params = {...config.data}
+    }else if(config.method=="post"){
+        //根据后端要求来配置请求头
         //config.headers["content-type"] = "application/x-www-form-urlencoded"
     }
-    loading.open()
-    return config;
+    return config
 },err=>{
-    return Promise.reject(err);
+    return Promise.reject(err)
 })
-
-server.interceptors.response.use(res=>{
-    if(res.status == 200){
-        loading.close()
+http.interceptors.response.use(res=>{
+    if(res.status==200){
         return res.data;
     }
 })
-
-export default server;
-
-
+//响应
+export default http
