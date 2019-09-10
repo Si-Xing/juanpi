@@ -7,10 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "better-scroll": "^1.15.2",
->>>>>>> 0acee20ce6ed6827caf1b3c755e8a070593f48ac
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
