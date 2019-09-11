@@ -1,6 +1,39 @@
 const path = require("path");
 
 module.exports = {
+<<<<<<< HEAD
+    devServer: {
+        proxy: {
+            "/api": {
+                target: "https://webservice.juanpi.com/",
+                changeOrigin: true
+            },
+            "/cate":{
+                target: "https://m.juanpi.com/",
+                changeOrigin: true
+            },
+            "/ActGoodsJs":{
+                target:"https://act.juancdn.com/",
+                changeOrigin: true
+            }
+        }
+    },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                "@": path.join(__dirname, "./src"),
+                "api": path.join(__dirname, "./src/api"),
+                "assets": path.join(__dirname, "./src/assets"),
+                "components": path.join(__dirname, "./src/components"),
+                "router": path.join(__dirname, "./src/router"),
+                "store": path.join(__dirname, "./src/store"),
+                "utils": path.join(__dirname, "./src/utils"),
+                "lib": path.join(__dirname, "./src/lib")
+            }
+        }
+    },
+}
+=======
   devServer: {
     proxy: {
       '/api': {
@@ -25,3 +58,5 @@ module.exports = {
     }
   }
 }
+
+>>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
