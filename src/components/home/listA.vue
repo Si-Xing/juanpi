@@ -1,6 +1,10 @@
 <template>
      <div class="goods" >
-        <div class="goodsItem" v-for=" (item,index) in list"  :key="index" :class=" index%2 ?'goodsItemR':''">
+        <router-link tag="div"
+        :to="{name:'homeDetails',params:{id:item.shop_id}}"
+        class="goodsItem" 
+        v-for=" (item,index) in list"
+        :key="index" :class=" index%2 ?'goodsItemR':''">
             <div class="img">
                 <img :src="item.pic_url" alt="">
             </div>
@@ -12,7 +16,7 @@
             <div  class="info">
                 <span>{{item.title}}</span>
             </div>
-        </div>
+        </router-link>
     </div>
 </template>
 <script>
@@ -26,7 +30,7 @@ export default {
     name:"ListA",
     async created(){
         let data = await HomeListA();
-        this.list = data.data.goods
+        this.list = data.data.goods;
     }
 }
 </script>
