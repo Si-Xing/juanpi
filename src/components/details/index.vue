@@ -2,12 +2,12 @@
 	<div>
 		<div class="bottom">
 			<ul>
-				<li>
+				<router-link  tag="li" to="/home">
 					<i class="iconfont">&#xe719;</i>首页
-				</li>
-				<li>
+</router-link>
+				<router-link tag="li" to="/shopCar">
 					<i class="iconfont">&#xe674;</i>购物车
-				</li>
+				</router-link>
 				<van-button tag="li" class="buy" @click="showPopup">立即购买
 				</van-button>				
                 <van-button tag="li" class="get"  @click="showPopup">加入购物车

@@ -20,11 +20,13 @@
        <Banner/>
     <div class="topBanner">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <v-touch tag="li" v-for="(item,index) in topList" :key="index" @tap="clickHandler(index)"> 
+                <img :src="item" alt="">
+            </v-touch>
         </ul>
+    </div>
+    <div class="newBanner">
+        <img src="https://s2.juancdn.com/jas/190910/3/4/5d777131b6f8ea32be04ccb3_1080x330.gif" alt="">
     </div>
     <div class="centerBanner">
         <div class="right"></div>
@@ -58,6 +60,23 @@ export default {
     name:"Home",
     components:{
         Banner
+    },
+    data(){
+        return {
+            topList:[
+                "https://goods8.juancdn.com/jas/190906/f/e/5d7209d733b089158b3f9cf6_270x242.png?imageMogr2/quality/85!/format/png",
+                "https://goods4.juancdn.com/jas/190906/7/e/5d7209e433b0891c744c3226_270x242.png?imageMogr2/quality/85!/format/png",
+                "https://goods3.juancdn.com/jas/190906/4/6/5d7209f1b6f8ea5615546202_270x242.png?iopcmd=convert&Q=85&dst=png",
+                "https://goods6.juancdn.com/jas/190906/b/2/5d720a0033b08911e0149f18_270x242.png?imageMogr2/quality/85!/format/png"
+            ]
+        }
+    },
+    methods:{
+        clickHandler(index){
+            if (index==3){
+                location.href="http://localhost:8080/#/lifeMarket"
+            }
+        }
     }
 }
 </script>
@@ -120,9 +139,18 @@ export default {
 }
 .topBanner li{
     flex:1;
-    background: url("https://goods3.juancdn.com/jas/190902/5/9/5d6cb3b533b08971d16f3df0_270x242.png?iopcmd=convert&Q=85&dst=png");
-    background-position: 50% 50%;
-    background-size: cover ;
+}
+.topBanner li img{
+   width:100%;
+   height:100%;
+}
+.newBanner{
+    height:1.15rem;
+    width:100%;
+}
+.newBanner img{
+    height:100%;
+    width:100%;
 }
 .centerBanner{
    height:2.32rem; 

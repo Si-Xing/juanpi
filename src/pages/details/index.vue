@@ -6,7 +6,7 @@
    <div class="banner">
     <img src="https://goods7.juancdn.com/jas/190906/d/4/5d71c795b6f8ea5548364849_1080x144.png?iopcmd=convert&Q=88&dst=png" alt="">
    </div>
-   <div class="price">
+   <div class="priceInfo">
        <div class="top">
            <img src="https://goods6.juancdn.com/jas/190830/a/a/5d689257b6f8ea0a3f0b5d65_126x45.png?imageMogr2/quality/88!/format/png" alt="">
            <span class="new">￥109</span>
@@ -49,44 +49,44 @@ export default {
     height:100%;
     width:100%;
 }
-.price{
+.priceInfo{
     width:100%;
     height:.95rem;
     padding: .12rem .14rem .1rem;
     background: #fff;
     
 }
-.price .top{
+.priceInfo .top{
     height:.35rem;
     width:100%;
     display: flex;
     align-items: center;
     position: relative;
 }
-.price img{
+.priceInfo img{
     width:.42rem;
     height:.15rem;
     margin-right:.08rem;
 }
-.price .new{
+.priceInfo .new{
     color:#ff464e;
     font-size:.24rem;
     margin-right:.04rem;
 }
-.price .center{
+.priceInfo .center{
     background-color: rgb(255, 70, 78);
     border-color: rgb(255, 70, 78);
     color: rgb(255, 255, 255);
     font-size:.1rem;
     padding: .02rem .04rem;
 }
-.price .right{
+.priceInfo .right{
     color: #999;
     font-size:.12rem;
     position: absolute;
     right:0;
 }
-.price .info{
+.priceInfo .info{
     color: #333333;
     font-size:.16rem;
 }

@@ -10,6 +10,10 @@ module.exports = {
             "/cate":{
                 target: "https://m.juanpi.com/",
                 changeOrigin: true
+            },
+            "/ActGoodsJs":{
+                target:"https://act.juancdn.com/",
+                changeOrigin: true
             }
         }
     },

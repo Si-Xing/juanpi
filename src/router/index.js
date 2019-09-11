@@ -4,6 +4,8 @@ import Home from "./home"
 import Classify from "./classify"
 import ShopCar from "./shopCar"
 import Mine from "./mine"
+import Details from "./details"
+import LifeMarket from "./lifeMarket"
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode:"hash",
@@ -16,6 +18,8 @@ const router = new VueRouter({
         Classify,
         ShopCar,
         Mine,
+        Details,
+        LifeMarket,
         {
             path:"**",
             component:()=>import("@/pages/notFound")

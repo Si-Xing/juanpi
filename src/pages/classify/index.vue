@@ -12,6 +12,12 @@
                 >{{item.name}}</v-touch>
 			</ul>
 		</div>
+		<div class="list-right">
+			<v-touch tag="div" class="goods" v-for="(item,index) in listRight" :key="index"  @tap="changeHanler(listRight[index].id)" >
+				<img :src="'https://s2.juancdn.com' + item.icon" alt="">
+				<span>{{item.name}}</span>
+			</v-touch >
+		</div>
         </div>
 	</div>
 </template>
@@ -25,6 +31,7 @@ export default {
 	data() {
 		return {
 			listLeft:[],
+			listRight:[],
             cla:"red",
             index1:0,
 		}
@@ -32,13 +39,16 @@ export default {
 	async created(){
 		let listLeft = await Classify();
 		this.listLeft = JSON.parse(listLeft.split("json(")[1].split(");")[0])  ;
+		this.listRight=this.listLeft[0].secondCateList
 	},
     methods:{
         clickHandler(index){
-            this.index1=index;
+			this.index1=index;
+			this.listRight=this.listLeft[index].secondCateList
+			
 		},
-		json(data){
-			console.log(data)
+		changeHanler(id){
+			console.log( id )
 		}
     }
 }
@@ -66,5 +76,29 @@ export default {
 .list-left ul .red {
 	color: #ff464e;
     border-left: 4px solid #ff464e;
+}
+.list-right{
+	float:left;
+	width:71%;
+	padding:0 0 .49rem 4%;
+	font-size:.12rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+.list-right .goods{
+	flex:1;
+	height:.94rem;
+	width:33%;
+	padding: 0 .13rem;
+	text-align: center;
+}
+.list-right .goods img{
+	height:.59rem;
+	width:.59rem;
+}
+.list-right .goods span{
+	font-size: .12rem;
+	line-height: .2rem;
+	color:#333;
 }
 </style>
