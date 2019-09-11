@@ -5,6 +5,8 @@ import store from "store/index"
 Vue.config.productionTip = false
 import AlleUl from "lib/index.js";
 import "lib/loadimg/index.js"
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, { name: 'v-touch' })
 Vue.use(AlleUl)
 
 new Vue({
