@@ -6,6 +6,10 @@ module.exports = {
             "/api": {
                 target: "https://webservice.juanpi.com/",
                 changeOrigin: true
+            },
+            "/cate":{
+                target: "https://m.juanpi.com/",
+                changeOrigin: true
             }
         }
     },
