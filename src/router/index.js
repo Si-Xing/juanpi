@@ -6,7 +6,8 @@ import ShopCar from "./shopCar"
 import Mine from "./mine"
 import SnapUp from "./snapUp"
 import Register from "./register";
-import Enter from "./enter"
+import Enter from "./enter";
+import HomeDetails from "./homeDetails";
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode:"hash",
@@ -22,6 +23,7 @@ const router = new VueRouter({
         Mine,
         Register,
         Enter,
+        HomeDetails,
         {
             path:"**",
             component:()=>import("@/pages/notFound")
