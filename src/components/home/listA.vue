@@ -1,6 +1,14 @@
 <template>
      <div class="goods" >
+<<<<<<< HEAD
         <div class="goodsItem" v-for=" (item,index) in list"  :key="index" :class=" index%2 ?'goodsItemR':''">
+=======
+        <router-link tag="div"
+        :to="{name:'homeDetails',params:{id:item.shop_id}}"
+        class="goodsItem" 
+        v-for=" (item,index) in list"
+        :key="index" :class=" index%2 ?'goodsItemR':''">
+>>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
             <div class="img">
                 <img :src="item.pic_url" alt="">
             </div>
@@ -12,7 +20,11 @@
             <div  class="info">
                 <span>{{item.title}}</span>
             </div>
+<<<<<<< HEAD
         </div>
+=======
+        </router-link>
+>>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     </div>
 </template>
 <script>
@@ -26,7 +38,11 @@ export default {
     name:"ListA",
     async created(){
         let data = await HomeListA();
+<<<<<<< HEAD
         this.list = data.data.goods
+=======
+        this.list = data.data.goods;
+>>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     }
 }
 </script>
