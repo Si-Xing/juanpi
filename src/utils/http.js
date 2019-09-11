@@ -1,4 +1,5 @@
 import axios from "axios"
+import Loading from "lib/loadimg/index.js"
 const http = axios.create({
     timeout:2000,
     //是否允许携带cookie
@@ -13,12 +14,14 @@ http.interceptors.request.use(config=>{
         //根据后端要求来配置请求头
         //config.headers["content-type"] = "application/x-www-form-urlencoded"
     }
+    Loading.open()
     return config
 },err=>{
     return Promise.reject(err)
 })
 http.interceptors.response.use(res=>{
     if(res.status==200){
+        Loading.close()
         return res.data;
     }
 })

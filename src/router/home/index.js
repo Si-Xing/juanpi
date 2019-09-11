@@ -10,12 +10,20 @@ export default {
             {
                 path:"listA",
                 name:"listA",
-                component:()=>import("components/home/listA")
+                component:()=>import("components/home/listA"),
+                meta:{
+                    tabBar:true,
+                    auth:false
+                }
             },
             {
                 path:"listB",
                 name:"listB",
-                component:()=>import("components/home/listB")
+                component:()=>import("components/home/listB"),
+                meta:{
+                    tabBar:true,
+                    auth:false
+                }
             }  
             ] 
 };

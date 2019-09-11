@@ -26,7 +26,7 @@
     </div>
     <div class="topBanner">
         <ul>
-            <li></li>
+            <router-link tag="li" to="/snapUp"></router-link>
             <li></li>
             <li></li>
             <li></li>
