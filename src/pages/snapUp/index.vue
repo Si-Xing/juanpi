@@ -2,7 +2,7 @@
   <JianPi-BScroll ref="scroll">
     <div class="snapUp">
       <div class="title">
-        <div class="title-left"></div>
+        <v-touch tag="div" class="title-left" @tap="clickHandle()"></v-touch>
         <span class="title-right">最后疯抢</span>
       </div>
       <ul class="snapUp-goods">
@@ -25,12 +25,12 @@
 </template>
 <script>
 import { anapUp_api } from "api/mocvie";
-import { async } from 'q';
+import { async } from "q";
 export default {
   name: "snapUp",
   data() {
     return {
-      sanpUpList:[],
+      sanpUpList: [],
       page: 1
     };
   },
@@ -40,25 +40,30 @@ export default {
   },
   mounted() {
     this.$refs.scroll.pullDownHandle(async () => {
-        this.page++;
-        let data = await anapUp_api(this.page);
-        if (data) {
-           data.data.goods.forEach(element => {
-            this.sanpUpList.push(element)
-          });
-          this.$refs.scroll.finishPullDownHandle()
-        }
-    });
-    this.$refs.scroll.pullUpHandle(async ()=>{
       this.page++;
       let data = await anapUp_api(this.page);
-        if (data) {
-          data.data.goods.forEach(element => {
-            this.sanpUpList.push(element)
-          });
-          this.$refs.scroll.finishPullUpHandle()
-        }
-    })
+      if (data) {
+        data.data.goods.forEach(element => {
+          this.sanpUpList.push(element);
+        });
+        this.$refs.scroll.finishPullDownHandle();
+      }
+    });
+    this.$refs.scroll.pullUpHandle(async () => {
+      this.page++;
+      let data = await anapUp_api(this.page);
+      if (data) {
+        data.data.goods.forEach(element => {
+          this.sanpUpList.push(element);
+        });
+        this.$refs.scroll.finishPullUpHandle();
+      }
+    });
+  },
+  methods: {
+    clickHandle() {
+      this.$router.back();
+    }
   }
 };
 </script>
@@ -80,7 +85,10 @@ export default {
   background-size: 100%;
   width: 0.24rem;
   height: 0.48rem;
-  margin: 0.1rem 0 0 0.12rem;
+  z-index: 3;
+  position: absolute;
+  top: 0.1rem;
+  left: 0.12rem;
 }
 .title .title-right {
   position: absolute;

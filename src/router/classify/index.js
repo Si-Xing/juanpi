@@ -1,8 +1,9 @@
 export default {
     path:"/classify",
-    name:"全部分类",
-    //按需加载引入 ===》路由的懒加载
-    component:()=>import("@/pages/classify")
-
-};
-
+    component:()=>import("@/pages/classify"),
+    name:"classify",
+    meta:{
+        tabBar:true,
+        auth:false
+    }
+}
