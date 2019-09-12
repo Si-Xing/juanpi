@@ -1,122 +1,118 @@
 <template>
-<<<<<<< HEAD
 	<div>
-		<div class="top">
+		<div class="shopCarTop">
 			<v-touch tag="i" @tap="handlerGoBack()" class="iconfont">&#xe716;</v-touch>
-			<div class="center">购物车</div>
+			<div class="shopCarCenter">购物车</div>
 			<v-touch tag="span" @tap="handlerChange()" v-show="flag">编辑</v-touch>
 			<v-touch tag="span" @tap="handlerChange()" v-show="!flag">完成</v-touch>
 		</div>
 		<div class="cksAll">
-			<i class="iconfont">&#xe625;</i>
+			<i @click="changeHandler($event),click=allSel()"   class="All selAll iconfont">&#xe625;</i>
 			<img src="http://s2.juancdn.com/bao/170615/2/b/5942339ea43d1f47ef70e59a_72x72.png" alt />
 			<span>全选</span>
 		</div>
 		<ul class="goodsList">
-			<li>
+			<li v-for="(item,index) in shopCarList" :key="index">
 				<div class="goodsradios">
-					<i class="iconfont">&#xe625;</i>
+					<i @click="changeHandler($event),clickNum(index)"  class="All iconfont">&#xe625;</i>
 				</div>
 				<div class="goodsinfo">
-					<img
-						src="https://goods1.juancdn.com/goods/190723/0/6/5d37073933b08941c565ccb4_800x800.jpg?iopcmd=thumbnail&type=11&height=310&width=310%7Ciopcmd=convert&Q=88&dst=jpg"
-						alt
-					/>
+					<img :src="item.src" />
 					<div class="goodsprice">
-						<p class="name">花花公子潮流青年夹克</p>
-						<p class="info">蓝色3xl</p>
+						<p class="name">{{item.title}}</p>
+						<p class="info">{{item.num}}</p>
 						<div class="price">
-							<span class="new">12321</span>
-							<span class="old">213213</span>
+							<span class="new">￥{{item.cprice}}</span>
+							<span class="old">￥{{item.oprice}}</span>
 						</div>
-						<span class="num">X10</span>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="goodsradios">
-					<i class="iconfont">&#xe625;</i>
-				</div>
-				<div class="goodsinfo">
-					<img
-						src="https://goods1.juancdn.com/goods/190723/0/6/5d37073933b08941c565ccb4_800x800.jpg?iopcmd=thumbnail&type=11&height=310&width=310%7Ciopcmd=convert&Q=88&dst=jpg"
-						alt
-					/>
-					<div class="goodsprice">
-						<p class="name">花花公子潮流青年夹克</p>
-						<p class="info">蓝色3xl</p>
-						<div class="price">
-							<span class="new">12321</span>
-							<span class="old">213213</span>
-						</div>
-						<span class="num">X10</span>
+
+							<div class="num">
+								<button @click="subHandler(index)">-</button>
+								<input type="text" :value="item.count" />
+								<button @click="oddHandler(index)">+</button>
+							</div>
+			
 					</div>
 				</div>
 			</li>
 		</ul>
 		<div class="getMoney">
 			<div class="goodsradios">
-				<i class="iconfont">&#xe625;</i>
+				<i @click="changeHandler($event),click=allSel()" class=" All selAll iconfont">&#xe625;</i>
 				全选
 			</div>
 			<div class="get" v-show="flag">
 				<div class="price">
 					<p>
-						合计
-						<span>￥333</span>
+						合计{{goodsPrice.goodsPriceSum}}
 					</p>
 				</div>
 				<div class="btn getBtn">
-					去结算
-					<span>(2)</span>
+					去结算({{goodsPrice.goodsCount}})
+					<span></span>
 				</div>
 			</div>
 			<div class="change" v-show="!flag">
 				<div class="delBtn btn">删除</div>
 				<div class="colBtn btn">移入收藏夹</div>
-				
 			</div>
 		</div>
 	</div>
 </template>
 <script>
+import { mapState,mapMutations,mapGetters} from 'vuex'
 export default {
 	name: 'ShopCar',
 	data() {
 		return {
-			flag: true
+			flag: true,
 		}
+	},
+	computed: {
+		...mapState({
+			shopCarList: state => state.HomeListB.shopCarList
+		}),
+		...mapGetters({
+        goodsPrice:"HomeListB/goodsPrice"
+      })
 	},
 	methods: {
 		handlerGoBack() {
 			this.$router.back()
 		},
 		handlerChange(e) {
-            this.flag = !this.flag
-    	}
-    }
+			this.flag = !this.flag
+		},
+		...mapMutations({
+			changeHandler:"HomeListB/changeHandler",
+			clickNum:"HomeListB/clickNum",
+			allSel:"HomeListB/allSel",
+			subHandler:"HomeListB/subHandler",
+			oddHandler:"HomeListB/oddHandler"
+		}),
+	}
 }
 </script>
 <style  scoped>
-.top {
+.shopCarTop {
 	width: 100%;
 	height: 0.44rem;
 	display: flex;
 	line-height: 0.44rem;
 	color: #666;
 }
-.top .center {
+.shopCarTop .shopCarCenter {
 	font-size: 0.18rem;
 	width: 3.03rem;
 	padding: 0 0.36rem;
 	text-align: center;
 	color: #333;
 }
-.top span {
+.shopCarTop span {
 	font-size: 0.15rem;
 	color: #4a4a4a;
 }
-.top i {
+.shopCarTop i {
 	font-size: 0.2rem;
 	display: block;
 	padding: 0 0 0 0.12rem;
@@ -200,6 +196,20 @@ export default {
 	text-decoration: line-through;
 	color: #999999;
 }
+.goodsprice > .num {
+  overflow: hidden;
+  display: flex;
+}
+.goodsprice > .num > button {
+  width: 20px;
+  height: 20px;
+  border: 0;
+}
+.goodsprice > .num > input {
+  width: 40px;
+  border:1px solid;
+  padding:0 0;
+}
 .goodsprice .num {
 	position: absolute;
 	right: 0;
@@ -252,17 +262,4 @@ export default {
 	background: #f6a623;
 	margin-left: 0.56rem;
 }
-=======
-    <div>
-        <!-- <h2>ShopCar</h2>   -->
-    </div>
-</template>
-<script>
-export default {
-    name:"ShopCar"
-}
-</script>
-<style >
-    
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
-</style>
+</style>	

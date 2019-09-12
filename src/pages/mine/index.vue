@@ -1,19 +1,5 @@
 <template>
-<<<<<<< HEAD
-    <div>
-    </div>
-</template>
-<script>
-import Details from '../details';
-export default {
-    name:"Mine",
-    components:{
-    }
-}
-</script>
-<style lang="">
-    
-=======
+    <div> 
   <div class="mine">
     <div class="title">
       <v-touch tag="div" class="title-left iconfont icon-zuojian" @tap="clickHandle()"></v-touch>
@@ -208,5 +194,4 @@ i {
   text-align: center;
   width: 100%;
 }
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
 </style>

@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<div >
 		<van-search placeholder="搜索商品"/>
         <div>
@@ -102,17 +101,5 @@ export default {
 	line-height: .2rem;
 	color:#333;
 }
-=======
-    <div>
-        <!-- <h2>Classify</h2> -->
-    </div>
-</template>
-<script>
-export default {
-    name:"Classify"
-}
-</script>
-<style lang="">
-    
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
+
 </style>
