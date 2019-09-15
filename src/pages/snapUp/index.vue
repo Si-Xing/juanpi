@@ -6,10 +6,14 @@
         <span class="title-right">最后疯抢</span>
       </div>
       <ul class="snapUp-goods">
-        <li class="snapUp-goods-cn" v-for="(item,index) in sanpUpList" :key="index">
+        <router-link v-for="(item,index) in sanpUpList" 
+        class="snapUp-goods-cn" 
+        tag="li" 
+        :to="{name:'homeDetails',params:{id:item.shop_id,url:item.goods_jump_url}}"
+        :key="index">
           <div class="img-con">
             <img :src="item.pic_url" />
-            <img :src="item.logo_url" class="snapUp-goods-img" />
+            <img :src="item.logo_url" class="snapUp-goods-img"  />
           </div>
           <p class="list-price">
             <span>{{item.coupon_tips}}</span>
@@ -18,7 +22,7 @@
             <h3>{{item.title}}</h3>
             <span class="only-time">{{item.time_left}}</span>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </JianPi-BScroll>
@@ -31,11 +35,11 @@ export default {
   data() {
     return {
       sanpUpList: [],
-      page: 1
+      page: 2
     };
   },
   async created() {
-    let data = await anapUp_api();
+    let data = await anapUp_api(this.page);
     this.sanpUpList = data.data.goods;
   },
   mounted() {
@@ -108,6 +112,7 @@ export default {
   position: relative;
   width: 50%;
   font-size: 14px;
+  z-index: 5;
 }
 .snapUp-goods-cn img:nth-child(1) {
   width: 100%;

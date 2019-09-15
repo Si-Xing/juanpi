@@ -1,9 +1,5 @@
 <template>
-<<<<<<< HEAD
     <div class="box">
-=======
-    <div>
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     <div class="top_w">
         <img src="https://jp.juancdn.com/jpwebapp/images/go_load_new.png" alt="">
     </div>
@@ -20,7 +16,6 @@
         <div class="right">
             <img src="https://goods3.juancdn.com/bao/170421/4/9/58f9f3bca43d1f15ff678b8c_132x132.png" alt="">
         </div>
-<<<<<<< HEAD
     </div>
        <Banner/>
     <div class="topBanner">
@@ -33,24 +28,6 @@
     <div class="newBanner">
         <img src="https://s2.juancdn.com/jas/190910/3/4/5d777131b6f8ea32be04ccb3_1080x330.gif" alt="">
     </div>
-=======
-
-    </div>
-    <div class="banner">
-        <img src="https://goods1.juancdn.com/jas/190903/1/6/5d6e0a1a33b0897ccd4ee6ce_1080x418.jpg" alt="">
-        <ul>
-            <li></li>
-        </ul> 
-    </div>
-    <div class="topBanner">
-        <ul>
-            <router-link tag="li" to="/snapUp"></router-link>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     <div class="centerBanner">
         <div class="right"></div>
         <div class="left">
@@ -62,11 +39,7 @@
             <div class="d"></div>
         </div>
     </div>
-<<<<<<< HEAD
-    <div class="centerMain"></div> 
-=======
     <div class="center"></div> 
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
         <div class="mainTitle">
         <ul>
             <li>
@@ -82,7 +55,6 @@
     </div>
 </template>
 <script>
-<<<<<<< HEAD
 import Banner from "components/home/banner"
 export default {
     name:"Home",
@@ -104,26 +76,19 @@ export default {
             if (index==3){
                 location.href="http://localhost:8080/#/lifeMarket"
             }
+            if(index==0){
+                this.$router.push("/snapUp")
+            }
         }
-=======
-export default {
-    name:"Home",
-    components:{
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     }
 }
 </script>
 <style>
-<<<<<<< HEAD
 .box{
     padding: .56rem 0 .19rem 0;
 }
 .top_w{
     position: absolute;
-=======
-.top_w{
-    position:fixed;
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     top:0;
     left:0;
     width:100%;
@@ -169,8 +134,6 @@ export default {
     height:.44rem;
     width:.44rem;
 }
-<<<<<<< HEAD
-=======
 .banner{
     height:1.45rem;
     width:100%;
@@ -179,7 +142,6 @@ export default {
     height:100%;
     width:100%
 }
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
 .topBanner ul{
     width:100%;
     display: flex;
@@ -188,7 +150,6 @@ export default {
 }
 .topBanner li{
     flex:1;
-<<<<<<< HEAD
 }
 .topBanner li img{
    width:100%;
@@ -201,11 +162,9 @@ export default {
 .newBanner img{
     height:100%;
     width:100%;
-=======
     background: url("https://goods3.juancdn.com/jas/190902/5/9/5d6cb3b533b08971d16f3df0_270x242.png?iopcmd=convert&Q=85&dst=png");
     background-position: 50% 50%;
     background-size: cover ;
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
 }
 .centerBanner{
    height:2.32rem; 
@@ -250,11 +209,7 @@ export default {
     background-position: 50% 50%;
     background-size: cover ;
 }
-<<<<<<< HEAD
-.centerMain{
-=======
 .center{
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
     background: url( "https://goods7.juancdn.com/jas/180518/c/6/5afe2f0db6f8ea096f2bfb35_1080x138.png?iopcmd=convert&Q=85&dst=png" );
     background-position: 50% 50%;
     background-size: cover ;
