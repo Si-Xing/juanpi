@@ -1,19 +1,16 @@
 <template>
     <div>
      <div class="top">
-       <img src="https://goods4.juancdn.com/goods/190908/6/a/5d73e795b6f8ea4bf80b8baf_800x800.jpg?imageMogr2/quality/88!/format/jpg" alt="">
+       <img :src="info.pic_url || detailsInfo.pic_url" alt="">
    </div> 
-   <div class="banner">
-    <img src="https://goods7.juancdn.com/jas/190906/d/4/5d71c795b6f8ea5548364849_1080x144.png?iopcmd=convert&Q=88&dst=png" alt="">
-   </div>
    <div class="priceInfo">
        <div class="top">
-           <img src="https://goods6.juancdn.com/jas/190830/a/a/5d689257b6f8ea0a3f0b5d65_126x45.png?imageMogr2/quality/88!/format/png" alt="">
-           <span class="new">￥109</span>
-           <span class="center">包邮</span>
-           <span class="right">2195人已购</span>
+           <span class="new">￥{{info.cprice || detailsInfo.cprice}}</span>   
+           <span class="old">￥{{info.oprice || detailsInfo.oprice}}</span>
+           <span class="detailsCenter">包邮</span>
+           <span class="right">{{info.bottomTexts.rightText || detailsInfo.bottomTexts.rightText }}</span>
        </div>
-       <div class="info">花花公子ICON男士秋季新款休闲百搭时尚舒适男装时尚连帽卫衣</div>
+       <div class="info">{{info.title_long || detailsInfo.title_long}}</div>
    </div>
    <PopupExp/>
     <PopupCar/>
@@ -21,13 +18,29 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 import PopupExp from "components/details/popup"
 import PopupCar from "components/details"
 export default {
     name:"Details",
+    data(){
+        return{
+            info:[],
+        }
+    },
     components:{
         PopupCar,
         PopupExp
+    },
+    created(){
+        if(sessionStorage.getItem("detailsInfo")){
+            this.info = JSON.parse(sessionStorage.getItem("detailsInfo"))
+        }
+    },
+    computed:{
+        ...mapState({
+            detailsInfo:state=>state.HomeListB.detailsInfo
+        })
     }
 }
 </script>
@@ -38,14 +51,6 @@ export default {
     width:100%;
 }
 .top img{
-    height:100%;
-    width:100%;
-}
-.banner{
-    height:.5rem;
-    width:100%;
-}
-.banner img{
     height:100%;
     width:100%;
 }
@@ -63,17 +68,18 @@ export default {
     align-items: center;
     position: relative;
 }
-.priceInfo img{
-    width:.42rem;
-    height:.15rem;
-    margin-right:.08rem;
+.priceInfo .old{
+        color: #bbbbbb;
+        font-size:.12rem;
+        text-decoration: line-through;
+        margin-right:.04rem;
 }
 .priceInfo .new{
     color:#ff464e;
     font-size:.24rem;
     margin-right:.04rem;
 }
-.priceInfo .center{
+.priceInfo .detailsCenter{
     background-color: rgb(255, 70, 78);
     border-color: rgb(255, 70, 78);
     color: rgb(255, 255, 255);
@@ -89,6 +95,7 @@ export default {
 .priceInfo .info{
     color: #333333;
     font-size:.16rem;
+    margin-top:.1rem;
 }
 
 </style>

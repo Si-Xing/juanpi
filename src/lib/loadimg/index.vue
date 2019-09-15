@@ -26,7 +26,9 @@ export default {
 </script>
 <style scoped>
 .loader {
-    background: radial-gradient(rgb(195, 226, 59), rgba(26, 52, 124, 0.904));
+    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.479);
+    background: radial-gradient(rgba(34, 34, 34, 0.479), rgba(0, 0, 0, 0.178));
     bottom: 0;
     left: 0;
     overflow: hidden;
