@@ -4,6 +4,8 @@ import Home from "./home"
 import Classify from "./classify"
 import ShopCar from "./shopCar"
 import Mine from "./mine"
+import Details from "./details"
+import LifeMarket from "./lifeMarket"
 import SnapUp from "./snapUp"
 import Register from "./register";
 import Enter from "./enter";
@@ -19,6 +21,9 @@ const router = new VueRouter({
         Home,
         Classify,
         ShopCar,
+        Mine,
+        Details,
+        LifeMarket,
         SnapUp,
         Mine,
         Register,

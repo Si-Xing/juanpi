@@ -1,7 +1,7 @@
 <template>
      <div class="goods" >
         <router-link tag="div"
-        :to="{name:'homeDetails',params:{id:item.shop_id}}"
+        :to="{name:'homeDetails',params:{id:item.shop_id,url:item.goods_jump_url}}"
         class="goodsItem" 
         v-for=" (item,index) in list"
         :key="index" :class=" index%2 ?'goodsItemR':''">
