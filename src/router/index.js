@@ -25,7 +25,6 @@ const router = new VueRouter({
         Details,
         LifeMarket,
         SnapUp,
-        Mine,
         Register,
         Enter,
         HomeDetails,

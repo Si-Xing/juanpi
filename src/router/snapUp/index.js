@@ -1,7 +1,7 @@
 export default {
-    path:"/snapUp",
+    path:"/snaUp",
     component:()=>import("@/pages/snapUp"),
-    name:"snapUp",
+    name:"snaUp",
     meta:{
         tabBar:false,
         auth:false

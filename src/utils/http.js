@@ -1,4 +1,5 @@
 import axios from "axios"
+import  LoadingComponent from "../lib/loadimg/index.js"
 import Loading from "lib/loadimg/index.js"
 const http = axios.create({
     timeout:2000,

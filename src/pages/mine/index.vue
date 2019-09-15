@@ -1,4 +1,5 @@
 <template>
+    <div> 
   <div class="mine">
     <div class="title">
       <v-touch tag="div" class="title-left iconfont icon-zuojian" @tap="clickHandle()"></v-touch>

@@ -11,6 +11,9 @@ import { CountDown } from 'vant';
 Vue.use(CountDown);
 Vue.use(VueTouch, { name: 'v-touch' })
 Vue.use(AlleUl)
+Vue.filter("Words",(value)=>{
+  return value.replace(/销量；/," ")
+})
 
 new Vue({
   router,
