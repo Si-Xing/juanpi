@@ -101,5 +101,4 @@ export default {
 	line-height: .2rem;
 	color:#333;
 }
-
 </style>

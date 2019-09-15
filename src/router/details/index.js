@@ -1,5 +1,5 @@
 export default {
-    path:"/details",
+    path:"/details/:id",
     component:()=>import("@/pages/details"),
     name:"details",
     meta:{

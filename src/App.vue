@@ -12,8 +12,6 @@ export default {
     [TabBar.name]:TabBar,
   },
 }
-//
-
 </script>
 <style lang="scss">
 

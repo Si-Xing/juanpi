@@ -15,20 +15,16 @@ http.interceptors.request.use(config=>{
         //根据后端要求来配置请求头
         //config.headers["content-type"] = "application/x-www-form-urlencoded"
     }
-    LoadingComponent.open()
     Loading.open()
     return config
 },err=>{
     return Promise.reject(err)
 })
-//响应
 http.interceptors.response.use(res=>{
     if(res.status==200){
-        LoadingComponent.close()
+        Loading.close()
         return res.data;
-        
     }
 })
-
 //响应
 export default http

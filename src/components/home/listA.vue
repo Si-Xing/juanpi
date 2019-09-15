@@ -2,7 +2,7 @@
      <div class="goods" >
         <div class="goodsItem" v-for=" (item,index) in listA"  :key="index" :class=" index%2 ?'goodsItemR':''">
         <router-link tag="div"
-        :to="{name:'homeDetails',params:{id:item.shop_id}}"
+        :to="{name:'homeDetails',params:{id:item.shop_id,url:item.goods_jump_url}}"
         class="goodsItem" 
         :key="index" :class=" index%2 ?'goodsItemR':''">
             <div class="img">
@@ -38,7 +38,7 @@ export default {
         ...mapState({
             listA:state=>state.HomeListA.listA
         })
-    },
+    }
 }
 </script>
 
