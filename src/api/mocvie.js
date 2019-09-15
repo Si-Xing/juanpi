@@ -1,12 +1,5 @@
 import http from "utils/http.js"
-<<<<<<< HEAD
-//首页精选专场
-export  const HomeListA = ()=>http({
-    method:"get",
-    url:"/api/getGoods?page=1&zy_ids=p8&app_name=zhe&catname=tab_hpzc&flag=tab_hpzc"
-})
 //首页精选单品
-=======
 export  const HomeListA = (page=1,zy_ids='p8',app_name='zhe',catname='tab_hpzc',flag='tab_hpzc')=>http({
     method:"get",
     url:"/api/getGoods",
@@ -18,16 +11,14 @@ export  const HomeListA = (page=1,zy_ids='p8',app_name='zhe',catname='tab_hpzc',
         flag:flag
     }
 })
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
+
 export  const HomeListB = ()=>http({
     method:"get",
     url:"/api/getGoods?page=1&zy_ids=p8_c4_l4&app_name=zhe&catname=tab_hpdp&flag=tab_hpdp"
 })
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
+   
+
 //最后抢购
 export const anapUp_api=(page=1,zy_ids="p8_c4_l4",app_name="zhe",catname="tab_hpzc",flag="tab_hpzc")=>http({
     method:"get",
@@ -40,7 +31,6 @@ export const anapUp_api=(page=1,zy_ids="p8_c4_l4",app_name="zhe",catname="tab_hp
         flag:flag
     }
 })
-<<<<<<< HEAD
 //分类 
 export const Classify =()=>http({
     method:"get",
@@ -51,9 +41,9 @@ export const LifeMarket =()=>http({
     method:"get",
     url:"/ActGoodsJs/1145443/default.json?callback=callback1145443"
 })
-=======
 //首页详情   1771593_5809736
-// https://webservice.juanpi.com/api/getBrandGoods?page=1&brand_id=1454490_5107716_118415182&msort=1&goods_utype=C4&price_range=&cat_threeids=
+// https://webservice.juanpi.com/api/getBrandGoods?page=1&brand_id=1072562_5246704&msort=8&goods_utype=C4&price_range=&cat_threeids=
+// https://webservice.juanpi.com/api/getBrandGoods?page=1&brand_id=1454490_5107716&msort=1&goods_utype=C4&price_range=&cat_threeids=
 export const homeDetails_api=(page=1,brand_id,msort=1,goods_utype='C4',price_range,cat_threeids)=>http({
     method:"get",
     url:"/api/getBrandGoods",
@@ -77,4 +67,3 @@ export const homeDetails_api=(page=1,brand_id,msort=1,goods_utype='C4',price_ran
 
 // https://webservice.juanpi.com/api/getGoods?page=1&zy_ids=p8_c4_l4&app_name=zhe&catname=tab_hpzc&flag=tab_hpzc
 // https://webservice.juanpi.com/api/getGoods?page=3&zy_ids=p8_c4_l4&app_name=zhe&catname=tab_hpzc&flag=tab_hpzc
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d

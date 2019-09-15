@@ -1,5 +1,5 @@
 export default {
-    path: "/homeDetails/:id",
+    path: "/homeDetails/:id/:url",
     name: "homeDetails",
     component: () => import("@/pages/homeDetails"),
     props:true,

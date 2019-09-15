@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<div>
 		<div class="top">
 			<v-touch tag="i" @tap="handlerGoBack()" class="iconfont">&#xe716;</v-touch>
@@ -252,17 +251,4 @@ export default {
 	background: #f6a623;
 	margin-left: 0.56rem;
 }
-=======
-    <div>
-        <!-- <h2>ShopCar</h2>   -->
-    </div>
-</template>
-<script>
-export default {
-    name:"ShopCar"
-}
-</script>
-<style >
-    
->>>>>>> 3c6b92ffad672a842a4e41bee7c8d9725b3bfa9d
 </style>
