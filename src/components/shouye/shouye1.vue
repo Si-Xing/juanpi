@@ -14,47 +14,53 @@
     <div v-for="(item,index) in data1" :key="index" class="goods">
       <p class="duNiVz">--{{item[0].tabname}}--</p>
       <div class="dPRneG-con">
-        <router-link
+        <v-touch
           v-for="(item1,index1) in item"
-          :to="{name:'details'}"
           :key="index1"
           v-if="item1.activityname=='click_cube_goods'"
           :class="index1%2?'dPRneG mar':'dPRneG mar1'"
+          @tap="idHandler(item1)"
         >
-          <img :src="item1.pic_url" :alt="item1.title" class="img1" />
-          <img :src="item1.corner" v-if="item1.corner" :alt="item1.title" class="img2" />
-          <div class="price">
-            <span class="new">￥{{item1.cprice}}</span>
-            <span class="old">￥{{item1.oprice}}</span>
-          </div>
-          <div class="info">
-            <span>{{item1.title}}</span>
-          </div>
-        </router-link>
+          <router-link tag="div" :to="{name:'details'}">
+            <img :src="item1.pic_url" :alt="item1.title" class="img1" />
+            <img :src="item1.corner" v-if="item1.corner" :alt="item1.title" class="img2" />
+            <div class="price">
+              <span class="new">￥{{item1.cprice}}</span>
+              <span class="old">￥{{item1.oprice}}</span>
+            </div>
+            <div class="info">
+              <span>{{item1.title}}</span>
+            </div>
+          </router-link>
+        </v-touch>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapMutations } from "vuex";
 export default {
   name: "Shouye1",
   props: {
     data: {
       required: true
     },
-    data1:{
+    data1: {
       required: true
     }
   },
-  data(){
-      return{
-          num:""
-      }
+  data() {
+    return {
+      num: ""
+    };
   },
-  methods:{
+  methods: {
     handlePage(index) {
       this.num = index;
-    }
+    },
+    ...mapMutations({
+      idHandler: "HomeListB/idHandler"
+    })
   }
 };
 </script>

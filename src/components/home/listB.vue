@@ -1,7 +1,7 @@
 <template>
-
     <div class="goods" >
-        <div class="goodsItem" v-for=" (item,index) in list"  :key="index">
+        <router-link tag="div" :to="{name:'details'}">
+            <v-touch tag="div" class="goodsItem" v-for=" (item,index) in listB"  :key="index" @tap="idHandler(item.goods_id)">
             <div class="img">
                 <img :src="item.pic_url" alt="">
             </div>
@@ -13,22 +13,33 @@
             <div  class="info">
                 <span>{{item.title}}</span>
             </div>
-        </div>
+        </v-touch>
+        </router-link>
     </div>
 </template>
 <script>
 import {HomeListB} from "api/mocvie"
+import {mapState,mapActions,mapMutations} from "vuex" 
 export default {
-    data(){
-        return {
-            list:[]
-        }
-    },
     name:"ListB",
     async created(){
         let data = await HomeListB();
-        this.list = data.data.goods
-    }
+        this.listBhandler( data.data.goods )
+    },
+ methods:{
+        ...mapActions({
+            listBhandler:"HomeListB/listBhandler"
+        }),
+        ...mapMutations({
+            idHandler:"HomeListB/idHandler"
+        }),
+
+    },
+    computed:{
+        ...mapState({
+            listB:state=>state.HomeListB.listB
+        })
+    },
 }
 </script>
 

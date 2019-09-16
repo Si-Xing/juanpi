@@ -48,6 +48,7 @@
 import { homeDetails_api } from "api/mocvie";
 import Shouye1 from "components/shouye/shouye1.vue";
 import Shouye2 from "components/shouye/shouye2.vue";
+import {mapMutations} from "vuex" 
 export default {
   name: "HomeDetails",
   async created() {
@@ -62,7 +63,6 @@ export default {
       this.flag1 = !this.flag1;
       this.goods=data1.goods
       this.msort=data1.msort;
-      console.log(222);
     } else {
       this.flag1 = this.flag1;
       this.floor_bar=data1.floor_bar

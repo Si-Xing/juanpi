@@ -1,5 +1,6 @@
 <template>
     <div class="box">
+    <div>
     <div class="top_w">
         <img src="https://jp.juancdn.com/jpwebapp/images/go_load_new.png" alt="">
     </div>
@@ -28,6 +29,7 @@
     <div class="newBanner">
         <img src="https://s2.juancdn.com/jas/190910/3/4/5d777131b6f8ea32be04ccb3_1080x330.gif" alt="">
     </div>
+    </div>
     <div class="centerBanner">
         <div class="right"></div>
         <div class="left">
@@ -39,6 +41,7 @@
             <div class="d"></div>
         </div>
     </div>
+    <div class="centerMain"></div> 
     <div class="center"></div> 
         <div class="mainTitle">
         <ul>
@@ -73,22 +76,24 @@ export default {
     },
     methods:{
         clickHandler(index){
-            if (index==3){
+            if (index>=2){
                 location.href="http://localhost:8080/#/lifeMarket"
-            }
-            if(index==0){
-                this.$router.push("/snapUp")
-            }
+            }else{
+                location.href="http://localhost:8080/#/snaUp"
+            } 
         }
-    }
+    }    
 }
 </script>
-<style>
+<style spoced>
 .box{
     padding: .56rem 0 .19rem 0;
 }
 .top_w{
     position: absolute;
+    }
+.top_w{
+    position:fixed;
     top:0;
     left:0;
     width:100%;
