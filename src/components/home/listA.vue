@@ -1,6 +1,10 @@
 <template>
      <div class="goods" >
-        <div class="goodsItem" v-for=" (item,index) in list"  :key="index" :class=" index%2 ?'goodsItemR':''">
+        <div class="goodsItem" v-for=" (item,index) in listA"  :key="index" :class=" index%2 ?'goodsItemR':''">
+        <router-link tag="div"
+        :to="{name:'homeDetails',params:{id:item.shop_id,url:item.goods_jump_url}}"
+        class="goodsItem" 
+        :key="index" :class=" index%2 ?'goodsItemR':''">
             <div class="img">
                 <img :src="item.pic_url" alt="">
             </div>
@@ -12,21 +16,28 @@
             <div  class="info">
                 <span>{{item.title}}</span>
             </div>
+        </router-link>
         </div>
     </div>
 </template>
 <script>
+import {mapState,mapActions} from "vuex" 
 import {HomeListA} from "api/mocvie"
 export default {
-     data(){
-        return {
-            list:[]
-        }
-    },
     name:"ListA",
     async created(){
         let data = await HomeListA();
-        this.list = data.data.goods
+        this.listAhandler(data.data.goods);     
+    },
+    methods:{
+        ...mapActions({
+            listAhandler:"HomeListA/listAhandler"
+        })
+    },
+    computed:{
+        ...mapState({
+            listA:state=>state.HomeListA.listA
+        })
     }
 }
 </script>

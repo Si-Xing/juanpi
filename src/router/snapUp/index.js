@@ -1,9 +1,9 @@
 export default {
-    path:"/snapUp",
-    component:()=>import("views/snapUp"),
-    name:"snapUp",
+    path:"/snaUp",
+    component:()=>import("@/pages/snapUp"),
+    name:"snaUp",
     meta:{
-        tabBar:true,
+        tabBar:false,
         auth:false
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <Wxs-TabBar/>
+    <Wxs-TabBar  v-if="$route.meta.tabBar"/>
   </div>
 </template>
 <script>
