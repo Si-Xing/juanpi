@@ -13,10 +13,11 @@
     </ul>
     <div v-for="(item,index) in data1" :key="index">
       <div class="dPRneG-con">
-        <div
+        <v-touch
           v-if="item.activityname=='click_cube_goods'"
           :class="index%2?'dPRneG mar':'dPRneG mar1'"
         >
+        <router-link tag="div" :to="{name:'details'}">
           <img :src="item.pic_url" :alt="item.title" class="img1" />
           <img :src="item.corner" v-if="item.corner" :alt="item.title" class="img2" />
           <div class="price">
@@ -26,12 +27,14 @@
           <div class="info">
             <span>{{item.title}}</span>
           </div>
-        </div>
+           </router-link>
+        </v-touch>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapMutations } from "vuex";
 export default {
   name: "Shouye2",
   props: {
@@ -51,7 +54,10 @@ export default {
   methods: {
     handlePage(index) {
       this.num = index;
-    }
+    },
+    ...mapMutations({
+      idHandler: "HomeListB/idHandler"
+    })
   }
 };
 </script>
