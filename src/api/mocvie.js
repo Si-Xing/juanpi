@@ -59,6 +59,23 @@ export const homeDetails_api=(page=1,brand_id,msort=1,goods_utype='C4',price_ran
 
 
 
+// https://m.juanpi.com/search?keyword=%E4%BD%A0&item=&user_groupids=p8_c4_l4_222&page=1&is_ajax=1&order=&sort=&c=&price_range=&filter_id=
+export const search_api=(keyword,item='',user_groupids='p8_c4_l4_222',page=1,is_ajax=1,order='',sort='',price_range='',filter_id='')=>http({
+    method:"get",
+    url:"/search",
+    data:{
+        keyword:keyword,
+        item:item,
+        user_groupids:user_groupids,
+        page:page,
+        is_ajax:is_ajax,
+        order:order,
+        sort:sort,
+        price_range:price_range,
+        filter_id:filter_id
+
+    }
+})
 
 
 

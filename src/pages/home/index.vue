@@ -4,7 +4,7 @@
         <img src="https://jp.juancdn.com/jpwebapp/images/go_load_new.png" alt="">
     </div>
     <div class="search">
-        <div class="left">
+        <router-link to="/search" tag="div" class="left">
             <span class="padd ">
                 <i class="iconfont">&#xe61d;</i>
             </span>
@@ -12,7 +12,7 @@
                 <img src="http://s2.juancdn.com/bao/170926/8/2/59ca3863a9fcf823cd42cfcb_84x60.png" alt="">
             </span>
             <span class="txt">搜索</span>
-        </div>
+        </router-link>
         <div class="right">
             <img src="https://goods3.juancdn.com/bao/170421/4/9/58f9f3bca43d1f15ff678b8c_132x132.png" alt="">
         </div>
