@@ -4,7 +4,7 @@
 			<ul>
 				<router-link  tag="li" to="/home">
 					<i class="iconfont">&#xe719;</i>首页
-</router-link>
+                </router-link>
 				<router-link tag="li" to="/shopCar">
 					<i class="iconfont">&#xe674;</i>购物车
 				</router-link>
@@ -25,7 +25,6 @@
        </van-popup>
 	</div>
 </template>
-
 <script>
 import {mapState,mapMutations} from "vuex"
 import Vue from 'vue';

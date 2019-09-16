@@ -19,7 +19,7 @@ const mutations = {
     idHandler(state, id) {
         if (typeof(id)=="object") {
             state.detailsInfo = id;
-            console.log(id,111,state.detailsInfo);
+            sessionStorage.setItem("detailsInfo", JSON.stringify(state.detailsInfo))
         } else {
             state.id = id;
             location.href = "http://localhost:8080/#/details"
@@ -122,7 +122,6 @@ const mutations = {
 }
 const getters = {
     goodsPrice(state) {
-        console.log(state)
         let goodsCount = 0, goodsPriceSum = 0;
         for (var i = 0; i < state.shopCarList.length; i++) {
             if (state.shopCarList[i].status) {
@@ -131,8 +130,6 @@ const getters = {
                 goodsPriceSum += Number((state.shopCarList[i].count * Number(state.shopCarList[i].cprice.replace("￥", ""))).toFixed(2))
             }
         }
-        console.log(goodsCount, goodsPriceSum)
-
         return {
             goodsCount,
             goodsPriceSum
