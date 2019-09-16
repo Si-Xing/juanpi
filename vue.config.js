@@ -13,6 +13,10 @@ module.exports = {
             "/ActGoodsJs":{
                 target:"https://act.juancdn.com/",
                 changeOrigin: true
+            },
+            "/search":{
+                target:"https://m.juanpi.com/",
+                changeOrigin: true
             }
         }
     },

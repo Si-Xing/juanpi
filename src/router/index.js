@@ -10,6 +10,7 @@ import SnapUp from "./snapUp"
 import Register from "./register";
 import Enter from "./enter";
 import HomeDetails from "./homeDetails";
+import Search from "./search";
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode:"hash",
@@ -28,6 +29,7 @@ const router = new VueRouter({
         Register,
         Enter,
         HomeDetails,
+        Search,
         {
             path:"**",
             component:()=>import("@/pages/notFound")
